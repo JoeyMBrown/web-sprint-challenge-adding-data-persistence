@@ -6,7 +6,7 @@ exports.up = function(knex) {
             tbl.string('task_description', 128).notNullable()
             tbl.string('task_notes', 128)
             tbl.boolean('task_completed').defaultTo(false)
-            tbl.integer('project_id').unsigned().notNullable().references('project_id').inTable('projects')
+            tbl.integer('project_id').unsigned().notNullable().references('project_id').inTable('projects').onDelete('cascade').onUpdate('cascade')
         })
 };
 
